@@ -1,64 +1,81 @@
+import { Avatar, IconButton,  makeStyles, Tooltip, Typography } from '@material-ui/core'
 import Head from 'next/head'
 import styles from '../styles/Home.module.css'
+import {Github, Telegram, Instagram, Email} from 'mdi-material-ui'
 
+
+const useStyles = makeStyles((theme) => ({
+  large: {
+    width: theme.spacing(20),
+    height: theme.spacing(20),
+  },
+
+}));
 export default function Home() {
+  const classes = useStyles()
+  const email = "contact@julianogomes.dev"
+
+  const handleCopyEmail = () => {
+    navigator.clipboard.writeText(email)   
+  }
+
   return (
     <div className={styles.container}>
       <Head>
-        <title>Create Next App</title>
-        <link rel="icon" href="/favicon.ico" />
+        <title>Juliano Gomes</title>
+        <link rel="icon" href="/favicon.ico"/>
       </Head>
 
       <main className={styles.main}>
-        <h1 className={styles.title}>
-          Welcome to <a href="https://nextjs.org">Next.js!</a>
-        </h1>
+      <Avatar alt="me" src="/me.jpeg" className={classes.large}></Avatar>
+      <Typography>Juliano de Souza Gomes</Typography>
+      <Tooltip title="ReactJS / NodeJS">
 
-        <p className={styles.description}>
-          Get started by editing{' '}
-          <code className={styles.code}>pages/index.js</code>
-        </p>
+      <Typography variant="body2">Full Stack Developer</Typography>
+      </Tooltip>
+      <div>
+      <Tooltip title="Github">
 
-        <div className={styles.grid}>
-          <a href="https://nextjs.org/docs" className={styles.card}>
-            <h3>Documentation &rarr;</h3>
-            <p>Find in-depth information about Next.js features and API.</p>
-          </a>
-
-          <a href="https://nextjs.org/learn" className={styles.card}>
-            <h3>Learn &rarr;</h3>
-            <p>Learn about Next.js in an interactive course with quizzes!</p>
-          </a>
-
-          <a
-            href="https://github.com/vercel/next.js/tree/master/examples"
-            className={styles.card}
-          >
-            <h3>Examples &rarr;</h3>
-            <p>Discover and deploy boilerplate example Next.js projects.</p>
-          </a>
-
-          <a
-            href="https://vercel.com/import?filter=next.js&utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-          >
-            <h3>Deploy &rarr;</h3>
-            <p>
-              Instantly deploy your Next.js site to a public URL with Vercel.
-            </p>
-          </a>
-        </div>
-      </main>
-
-      <footer className={styles.footer}>
+        <IconButton>
         <a
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
+          href="https://github.com/JulianoSGomes"
           target="_blank"
           rel="noopener noreferrer"
-        >
-          Powered by{' '}
-          <img src="/vercel.svg" alt="Vercel Logo" className={styles.logo} />
+          ><Github/>
         </a>
+        </IconButton>
+          </Tooltip>
+        <Tooltip title="Telegram">
+
+        <IconButton>
+        <a
+          href="https://t.me/GOMESjs"
+          target="_blank"
+          rel="noopener noreferrer"
+          ><Telegram/></a></IconButton>
+          </Tooltip>
+
+
+         <Tooltip title="Instagram">
+           
+        <IconButton>
+        <a
+          href="https://www.instagram.com/julianosgomes/"
+          target="_blank"
+          rel="noopener noreferrer"
+          ><Instagram/></a></IconButton>
+          </Tooltip>
+
+
+        <Tooltip title="Clique para copiar o email">
+
+        <IconButton onClick={handleCopyEmail}>
+        <Email/></IconButton>
+        </Tooltip>
+      </div>
+      </main>
+      <footer className={styles.footer}>
+          Powered by Juliano Gomes
       </footer>
     </div>
   )
