@@ -27,7 +27,7 @@ export default function Home() {
       </Head>
 
       <main className={styles.main}>
-      <Avatar alt="me" src="/me.jpeg" className={classes.large}></Avatar>
+      <Avatar alt="me" src="/me.jpeg" className={classes.large} />
       <Typography>Juliano de Souza Gomes</Typography>
       <Tooltip title="ReactJS / NodeJS">
 
